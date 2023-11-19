@@ -6,6 +6,7 @@
 
  (function() {
    for (let number of numbers) {
+    
      if (number % 2 !== 0) {
        console.log(number);
      }
@@ -70,57 +71,29 @@ console.log(sum);
 
 //d.Return all the prime numbers in an array
 //Using an anonymous function:
-const numberArray2 = [2, 3, 4, 5, 6, 7, 8, 9];
-(function(arr) {
-    function isPrime(num) {
-      if (num <= 1) return false;
-      if (num <= 3) return true;
-      if (num % 2 === 0 || num % 3 === 0) return false;
-  
-      for (let i = 5; i * i <= num; i += 6) {
-        if (num % i === 0 || num % (i + 2) === 0) return false;
-      }
-  
-      return true;
-    }
-  
-    const primeNumbers = [];
-    for (let number of arr) {
-      if (isPrime(number)) {
-        primeNumbers.push(number);
+const numberArray2 = [2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16];
+   function isprime(num){
+    for(let i=2;i<num;i++){
+      if(num%i===0){
+        return false
       }
     }
-  
-    console.log(primeNumbers);
-  })(numberArray);
-
+    return num>1
+   }
+   console.log(numberArray2.filter(isprime))
   //IIFE
-  const numberArray3 = [2, 3, 4, 5, 6, 7, 8, 9];
+  const numberArray3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+    let primenumbers=numberArray3.filter (function(num){
+      if(num<2) return false
+      for(let i=2;i<num;i++){
+        if(num%i===0){
+          return false
+        }
+      }return true
 
-const primeNumbers = (function(arr) {
-  function isPrime(num) {
-    if (num <= 1) return false;
-    if (num <= 3) return true;
-    if (num % 2 === 0 || num % 3 === 0) return false;
+    })
+    console.log(primenumbers)
 
-    for (let i = 5; i * i <= num; i += 6) {
-      if (num % i === 0 || num % (i + 2) === 0) return false;
-    }
-
-    return true;
-  }
-
-  const result = [];
-  for (let number of arr) {
-    if (isPrime(number)) {
-      result.push(number);
-    }
-  }
-
-  return result;
-})(numberArray);
-
-console.log(primeNumbers);
 
 //e.Return all the palindromes in an array
 //Using an anonymous function:
@@ -225,6 +198,88 @@ const rotatedArray = (function(arr, k) {
 })(originalArray, k);
 
 console.log(rotatedArray);
+
+
+//2. Do the below programs in arrow functions.
+  // a.Print odd numbers in an array
+
+  const numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const printOddNumbers = (arr) => {
+  arr.forEach((num) => {
+    if (num % 2 !== 0) {
+      console.log(num);
+    }
+  });
+};
+
+printOddNumbers(numbers1);
+
+
+// Do the below programs in arrow functions
+// b.Convert all the strings to title caps in a string array
+const stringArray5 = ['hello', 'world', 'how', 'are', 'you'];
+
+const convertToTitleCaps = (arr) => {
+  return arr.map((str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  });
+};
+
+const titleCapsArray = convertToTitleCaps(stringArray5);
+console.log(titleCapsArray);
+
+// Do the below programs in arrow functions.
+// c.Sum of all numbers in an array
+const numbers3 = [1, 2, 3, 4, 5];
+
+const sumOfNumbers = (arr) => {
+  return arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+};
+
+const totalSum = sumOfNumbers(numbers3);
+console.log(totalSum);
+
+
+// Do the below programs in arrow functions.
+// d.Return all the prime numbers in an array
+
+const numbers5 = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const isPrime = num => {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+};
+
+const getPrimeNumbers = arr => arr.filter(num => isPrime(num));
+
+const primeNumbers = getPrimeNumbers(numbers5);
+console.log(primeNumbers);
+
+
+// Do the below programs in arrow functions.
+// e.Return all the palindromes in an array
+const words = ['level', 'hello', 'radar', 'world', 'madam'];
+
+const isPalindrome = str => {
+  const reversed = str.split('').reverse().join('');
+  return str === reversed;
+};
+
+const getPalindromes = arr => arr.filter(word => isPalindrome(word));
+
+const palindromeWords = getPalindromes(words);
+console.log(palindromeWords);
+
+
+
+
+
+
+
 
 
 
