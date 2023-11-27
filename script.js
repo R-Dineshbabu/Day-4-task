@@ -193,9 +193,9 @@ const originalArray1 = [1, 2, 3, 4, 5];
 const m = 2;
 
 const rotatedArray = (function(arr, k) {
-  k = k % arr.length; // Ensure k is within the array length
-  return arr.slice(k).concat(arr.slice(0, k));
-})(originalArray, k);
+  k = m % arr.length; // Ensure k is within the array length
+  return arr.slice(m).concat(arr.slice(0, m));
+})(originalArray, m);
 
 console.log(rotatedArray);
 
